@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="left">
+    <div class="picture">
+      <img src="assets/img/fondo.jpg" alt="fondo" />
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card-login">
+      <p-card
+        header=""
+        subheader=""
+        [style]="{ width: '360px' }"
+        styleClass="p-card-shadow"
+      >
+        <ng-template pTemplate="header"
+          ><h2 class="title">Umbrella corp.</h2></ng-template
+        >
+        <p-tabView>
+          <!-- ----------------------login-------------------------------- -->
+          <p-tabPanel header="Login">
+            <app-login></app-login>
+          </p-tabPanel>
+
+          <!-- ----------------------register-------------------------------- -->
+          <p-tabPanel header="Register">
+            <app-register></app-register>
+          </p-tabPanel>
+        </p-tabView>
+      </p-card>
+    </div>
+  </div>
+</div>

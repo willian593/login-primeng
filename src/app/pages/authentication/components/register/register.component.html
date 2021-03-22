@@ -1,0 +1,124 @@
+<form
+  autocomplete="off"
+  action=""
+  [formGroup]="formRegister"
+  (ngSubmit)="saveRegister()"
+>
+  <!-- ==================NICK ===================-->
+  <div class="input-user">
+    <span class="p-input-icon-left">
+      <i class="pi pi-user-edit"></i>
+      <input
+        class="p-inputtext-lg"
+        type="text"
+        pInputText
+        placeholder="Nick"
+        formControlName="nick"
+        [class.is-invalid]="nickInvalid"
+      />
+    </span>
+    <small
+      *ngIf="hasError('nick', 'required')"
+      id="username2-help"
+      class="p-error"
+      >Nick es <strong>requerido</strong>.</small
+    >
+    <small
+      *ngIf="hasError('nick', 'minlength')"
+      id="username2-help"
+      class="p-error"
+      >Ingrese un minimo de <strong>2 caracteres</strong>.</small
+    >
+  </div>
+  <!-- ==================EMAIL ===================-->
+
+  <div class="input-user">
+    <span class="p-input-icon-left">
+      <i class="pi pi-inbox"></i>
+      <input
+        class="p-inputtext-lg"
+        type="email"
+        pInputText
+        placeholder="Email"
+        formControlName="email"
+        [class.is-invalid]="emailInvalid"
+      />
+    </span>
+    <small
+      *ngIf="hasError('email', 'required')"
+      id="username2-help"
+      class="p-error"
+    >
+      El email es <strong>requerido</strong>.</small
+    >
+    <small
+      *ngIf="hasError('email', 'email')"
+      id="username2-help"
+      class="p-error"
+    >
+      El email no es <strong>valido</strong>.</small
+    >
+  </div>
+  <!-- ==================PASSWORD ===================-->
+  <div class="input-user">
+    <!-- <p-password
+          placeholder="Password"
+          [toggleMask]="true"
+        ></p-password> -->
+    <span class="p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <input
+        pPassword
+        class="p-inputtext-lg"
+        type="password"
+        required
+        placeholder="Contraseña"
+        formControlName="pass1"
+        [class.is-invalid]="password"
+      />
+    </span>
+    <small
+      *ngIf="hasError('pass1', 'required')"
+      id="username2-help"
+      class="p-error"
+    >
+      La contraseña es <strong>requerida</strong>.</small
+    >
+  </div>
+  <!-- ==================REPETIR PASSWORD ===================-->
+
+  <span class="p-input-icon-left">
+    <i class="pi pi-lock"></i>
+    <input
+      class="p-inputtext-lg"
+      type="password"
+      required
+      pInputText
+      placeholder="Repetir contraseña"
+      formControlName="pass2"
+      [class.is-invalid]="hasError('pass2', 'passwordEqual')"
+    />
+  </span>
+  <small
+    *ngIf="hasError('pass2', 'required')"
+    id="username2-help"
+    class="p-error"
+  >
+    <br />
+    La contraseña es <strong>requerida</strong>.</small
+  >
+
+  <small *ngIf="checarSiSonIguales()" id="username2-help" class="p-error">
+    <br />
+    La contraseña <strong>no concuerda</strong>.</small
+  >
+
+  <div class="btn-register">
+    <p-button
+      label="Registrarse"
+      [style]="{ width: '100%' }"
+      type="submit"
+      [disabled]="!formRegister.valid"
+    ></p-button>
+  </div>
+</form>

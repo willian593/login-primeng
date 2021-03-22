@@ -1,0 +1,12 @@
+<!-- Swiper -->
+<div class="container">
+  <div class="swiper-container" [swiper]="config">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let item of sponsors">
+        <img [src]="item.img" [alt]="item.img" class="swiper-slide-circulo" />
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>

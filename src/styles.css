@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~swiper/swiper-bundle.min.css";
+/* @import "~swiper/dist/css/swiper.min.css"; */
+
+:root {
+  --bg-color-green: #41b883;
+  --bg-color-red: #a6120d;
+  --bg-color-blue: #61dbfb;
+  --bg-color-orange: #ff3c00;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+}
+
+/* swiper */
+/* .swiper-container {
+  width: 100%;
+  height: 300px;
+  margin: 50px auto;
+}
+
+.swiper-slide {
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  line-height: 300px;
+} */

@@ -1,0 +1,65 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "left right";
+}
+/* --------------lado izquierdo--------------------------- */
+
+.container .left {
+  grid-area: left;
+}
+
+/* .picture {
+  background-position: right;
+  background-repeat: no-repeat;
+} */
+
+img {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* --------------lado derecho--------------------------- */
+
+.container .right {
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: right;
+}
+
+.input-user {
+  margin: 20px 20px 30px 0px;
+}
+.btn-signup,
+.btn-register {
+  margin-top: 30px;
+}
+
+.title {
+  margin-left: 30px;
+  padding-top: 30px;
+}
+
+:host /deep/ .p-card .p-card-content {
+  padding: 0;
+}
+
+:host ::ng-deep .p-password input {
+  width: 16.5rem;
+}
+
+/* :host /deep/ .ui-accordion .ui-accordion-header:hover a{
+  text-decoration: none ;
+} */
+/* responsive */
