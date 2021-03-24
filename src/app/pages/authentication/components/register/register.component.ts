@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { ValidarFormService } from '../../../../services/validar-form.service';
 import { passwordEqual } from '../../../../utils/password-equal';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validarService: ValidarFormService
+    private validarService: ValidarFormService,
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -37,16 +41,16 @@ export class RegisterComponent implements OnInit {
   }
 
   get password() {
-    return this.formRegister.get('pass1').invalid;
+    return this.formRegister.get('password').invalid;
   }
 
   validarFormRegister() {
     this.formRegister = this.fb.group(
       {
-        nick: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
-        pass1: ['', Validators.required],
-        pass2: ['', [Validators.required]],
+        nick: ['william', [Validators.required, Validators.minLength(2)]],
+        email: ['admin@gmail.com', [Validators.required, Validators.email]],
+        password: ['HOLAcomo123456', Validators.required],
+        repatPass: ['HOLAcomo123456', [Validators.required]],
       },
       {
         validators: passwordEqual,
@@ -57,8 +61,8 @@ export class RegisterComponent implements OnInit {
   checarSiSonIguales(): boolean {
     return (
       this.formRegister.hasError('noSonIguales') &&
-      this.formRegister.get('pass1').dirty &&
-      this.formRegister.get('pass2').dirty
+      this.formRegister.get('password').dirty &&
+      this.formRegister.get('repatPass').dirty
     );
   }
 
@@ -68,6 +72,14 @@ export class RegisterComponent implements OnInit {
   }
 
   saveRegister() {
-    console.log(this.formRegister.value);
+    const { email, password } = this.formRegister.value;
+    if (this.formRegister.invalid) {
+      return Object.values(this.formRegister.controls).forEach((control) => {
+        control.markAllAsTouched();
+        console.log('formulario no es correcto');
+      });
+    }
+
+    this.auth.register(email, password);
   }
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-primeng-4d4e9": {
+      "hosting": {
+        "test": [
+          "login-primeng-4d4e9"
+        ]
+      }
+    }
+  }
+}

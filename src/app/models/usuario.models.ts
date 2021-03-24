@@ -1,6 +1,6 @@
 export class UsuarioModel {
-  email: string;
   nick: string;
+  email: string;
   password: string;
   repatPass: string;
 }

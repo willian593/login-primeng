@@ -73,12 +73,12 @@
         type="password"
         required
         placeholder="Contraseña"
-        formControlName="pass1"
+        formControlName="password"
         [class.is-invalid]="password"
       />
     </span>
     <small
-      *ngIf="hasError('pass1', 'required')"
+      *ngIf="hasError('password', 'required')"
       id="username2-help"
       class="p-error"
     >
@@ -95,23 +95,27 @@
       required
       pInputText
       placeholder="Repetir contraseña"
-      formControlName="pass2"
-      [class.is-invalid]="hasError('pass2', 'passwordEqual')"
+      formControlName="repatPass"
+      [class.is-invalid]="hasError('repatPass', 'passwordEqual')"
     />
   </span>
   <small
-    *ngIf="hasError('pass2', 'required')"
+    *ngIf="hasError('repatPass', 'required')"
     id="username2-help"
     class="p-error"
   >
     <br />
     La contraseña es <strong>requerida</strong>.</small
   >
-
   <small *ngIf="checarSiSonIguales()" id="username2-help" class="p-error">
     <br />
     La contraseña <strong>no concuerda</strong>.</small
   >
+
+  <div class="p-field-checkbox">
+    <p-checkbox binary="true" inputId="binary"></p-checkbox>
+    <label for="binary"> Recordar mi usuario</label>
+  </div>
 
   <div class="btn-register">
     <p-button

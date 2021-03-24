@@ -51,6 +51,10 @@ img {
   padding-top: 30px;
 }
 
+div.p-field-checkbox {
+  margin-top: 20px;
+}
+
 :host /deep/ .p-card .p-card-content {
   padding: 0;
 }

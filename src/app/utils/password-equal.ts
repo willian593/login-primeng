@@ -3,8 +3,8 @@ import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 export const passwordEqual: ValidatorFn = (
   control: FormGroup
 ): ValidationErrors | null => {
-  const password = control.get('pass1');
-  const confirmarPassword = control.get('pass2');
+  const password = control.get('password');
+  const confirmarPassword = control.get('repatPass');
 
   return password.value === confirmarPassword.value
     ? null

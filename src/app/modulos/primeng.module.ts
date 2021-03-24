@@ -5,6 +5,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
+import { CheckboxModule } from 'primeng/checkbox';
 
 const modulosPrimeng = [
   CardModule,
@@ -13,6 +14,7 @@ const modulosPrimeng = [
   PasswordModule,
   InputTextModule,
   DividerModule,
+  CheckboxModule,
 ];
 
 @NgModule({
