@@ -6,6 +6,7 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { CheckboxModule } from 'primeng/checkbox';
+import { MenubarModule } from 'primeng/menubar';
 
 const modulosPrimeng = [
   CardModule,
@@ -15,6 +16,7 @@ const modulosPrimeng = [
   InputTextModule,
   DividerModule,
   CheckboxModule,
+  MenubarModule,
 ];
 
 @NgModule({
