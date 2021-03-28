@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 // firebase
 import { AngularFireAuth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,35 +13,48 @@ import Swal from 'sweetalert2';
 export class AuthService {
   userToken: string;
   isLoggeIn = false;
-  constructor(private http: HttpClient, private afAuth: AngularFireAuth) {}
+  constructor(
+    private http: HttpClient,
+    private afAuth: AngularFireAuth,
+    private ngZone: NgZone,
+    private router: Router
+  ) {}
 
   /*--------------------LOGIN USUARIO--------------------*/
   async login(email: string, password: string) {
     const pass =
       'The password is invalid or the user does not have a password.';
     try {
-      const login = await this.afAuth
-        .signInWithEmailAndPassword(email, password)
-        .then((resp) => {
-          this.isLoggeIn = true;
-          localStorage.setItem('token', JSON.stringify(resp.user));
-        });
+      const login = await this.afAuth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      console.log(login);
+      // .then((resp) => {
+      //   this.ngZone.run(() => {
+      //     this.router.navigateByUrl('dashboard');
+      //   });
+      //   console.log(resp);
+      //   Swal.close();
+      //   this.isLoggeIn = true;
+      //   localStorage.setItem('token', JSON.stringify(resp.user));
+      // });
+
       return login;
     } catch (error) {
       if (error.message === pass) {
         Swal.fire({
           icon: 'error',
           title: 'La contraseña es incorrecta',
-          text: error.message,
+          // text: error.message,
         });
       } else {
         Swal.fire({
           icon: 'error',
           title: 'El correo es incorrecto',
-          text: error.message,
+          // text: error.message,
         });
       }
-      console.log(error.message);
     }
   }
 

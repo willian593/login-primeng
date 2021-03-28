@@ -84,6 +84,13 @@
     >
       La contraseña es <strong>requerida</strong>.</small
     >
+    <small
+      *ngIf="hasError('password', 'minlength')"
+      id="username2-help"
+      class="p-error"
+    >
+      Se requiere una contraseña mínimo de <strong>6 caracteres</strong>.</small
+    >
   </div>
   <!-- ==================REPETIR PASSWORD ===================-->
 
