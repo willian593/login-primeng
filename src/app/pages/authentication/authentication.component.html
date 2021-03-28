@@ -13,9 +13,12 @@
         [style]="{ width: '360px' }"
         styleClass="p-card-shadow"
       >
-        <ng-template pTemplate="header"
-          ><h2 class="title">Umbrella corp.</h2></ng-template
-        >
+        <ng-template pTemplate="header">
+          <div class="header__logo">
+            <img class="logo__auth" src="assets/img/logo/logowhite.svg" />
+            <h2 class="logo__title">Wizz corp.</h2>
+          </div>
+        </ng-template>
         <p-tabView>
           <!-- ----------------------login-------------------------------- -->
           <p-tabPanel header="Login">

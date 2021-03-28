@@ -49,7 +49,10 @@ export class RegisterComponent implements OnInit {
       {
         nick: ['william', [Validators.required, Validators.minLength(2)]],
         email: ['admin@gmail.com', [Validators.required, Validators.email]],
-        password: ['HOLAcomo123456', Validators.required],
+        password: [
+          'HOLAcomo123456',
+          [Validators.required, Validators.minLength(6)],
+        ],
         repatPass: ['HOLAcomo123456', [Validators.required]],
       },
       {

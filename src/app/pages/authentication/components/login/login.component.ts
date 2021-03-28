@@ -45,23 +45,18 @@ export class LoginComponent implements OnInit {
   }
 
   async signIn() {
-    Swal.fire({
-      allowOutsideClick: false,
-      icon: 'info',
-      text: 'Espere por favor...',
-    });
-    Swal.showLoading();
     const { email, password } = this.formLogin.value;
     try {
       const user = await this.authService.login(email, password);
+
       // guardar localStorage
-      if (this.isSignedIn) {
-        localStorage.setItem('email', this.user.email);
-      }
-      this.ngZone.run(() => {
-        this.router.navigateByUrl('dashboard');
-      });
-      Swal.close();
+      // if (this.isSignedIn) {
+      //   localStorage.setItem('email', this.user.email);
+      // }
+      // this.ngZone.run(() => {
+      //   this.router.navigateByUrl('dashboard');
+      // });
+      // Swal.close();
     } catch (error) {}
   }
 }
