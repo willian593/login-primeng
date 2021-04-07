@@ -9,8 +9,6 @@ import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 // primeng
 import { PrimengModule } from './modulos/primeng.module';
-// carousell
-import { SwiperModule } from 'ngx-swiper-wrapper';
 // auth
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 // pages
@@ -26,7 +24,6 @@ import { AngularFireModule } from '@angular/fire';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SwiperModule,
     PrimengModule,
     AuthenticationModule,
     PagesModule,

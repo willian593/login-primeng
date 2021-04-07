@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SwiperModule } from 'ngx-swiper-wrapper';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PrimengModule } from '../modulos/primeng.module';
 
-const pagesModules = [CommonModule, SwiperModule, PrimengModule];
+const pagesModules = [CommonModule, PrimengModule];
 
 @NgModule({
   declarations: [DashboardComponent],
