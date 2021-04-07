@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
     return control?.touched && control?.hasError(errorCode);
   }
 
-  saveRegister() {
+  async saveRegister() {
     const { email, password } = this.formRegister.value;
     if (this.formRegister.invalid) {
       return Object.values(this.formRegister.controls).forEach((control) => {
