@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from '../../services/auth.service';
+import { UsuarioModel } from '../../models/usuario.models';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,12 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  public user: UsuarioModel;
   items: MenuItem[];
-  constructor() {}
 
+  constructor(private authServ: AuthService) {
+    this.user = authServ.user;
+  }
   ngOnInit(): void {
     this.items = [
       {
@@ -29,5 +34,8 @@ export class DashboardComponent implements OnInit {
         ],
       },
     ];
+  }
+  logout() {
+    this.authServ.logout();
   }
 }

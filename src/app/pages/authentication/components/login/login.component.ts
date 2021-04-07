@@ -48,15 +48,12 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.formLogin.value;
     try {
       const user = await this.authService.login(email, password);
-
       // guardar localStorage
       // if (this.isSignedIn) {
       //   localStorage.setItem('email', this.user.email);
       // }
-      // this.ngZone.run(() => {
-      //   this.router.navigateByUrl('dashboard');
-      // });
-      // Swal.close();
-    } catch (error) {}
+    } catch (error) {
+      console.log('error');
+    }
   }
 }
